@@ -5,12 +5,15 @@
 /x86
 
 *.aps
+*.exe
 *.log
+*.obj
 *.tlog
 *.vcxproj.user
 
 *.nx
 *.wz
+CLAUDE.local.md
 Settings
 
 /includes/WzLib

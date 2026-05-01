@@ -10,37 +10,19 @@ HeavenClient is a custom, open-source MapleStory v83 game client written in C++ 
 
 **Build from command line** (run from project root):
 ```powershell
-# Find MSBuild (path varies by VS version/edition)
+# Auto-detect MSBuild via vswhere
 & (& "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe" -latest -requires Microsoft.Component.MSBuild -find "MSBuild\**\Bin\amd64\MSBuild.exe") MapleStory.vcxproj /p:Configuration=Release /p:Platform=x64 /m /nologo
-
-# Or use the direct path if known (example for VS 18 Insiders):
-& "C:\Program Files\Microsoft Visual Studio\18\Insiders\MSBuild\Current\Bin\amd64\MSBuild.exe" MapleStory.vcxproj /p:Configuration=Release /p:Platform=x64 /m /nologo
 ```
 
-Common configurations:
-```
-/p:Configuration=Release /p:Platform=x64    # 64-bit release (primary)
-/p:Configuration=Debug   /p:Platform=x64    # 64-bit debug (console output)
-/p:Configuration=Release /p:Platform=Win32  # 32-bit release
-/p:Configuration=Debug   /p:Platform=Win32  # 32-bit debug
-```
+Common configurations: `Release|x64` (primary), `Debug|x64` (console output), `Release|Win32`, `Debug|Win32`.
 
-**Build in Visual Studio**: Open `MapleStory.vcxproj`, then Ctrl+Shift+B or Build menu.
+**Build in Visual Studio**: Open `MapleStory.vcxproj`, then Ctrl+Shift+B.
 
-**Clean build** (when things break): Clean Solution, delete `.vs/`, `x64/`, `x86/`, `debug.log`, `MapleStory.aps`, `Settings`, then rebuild.
+**Clean build**: Clean Solution, delete `.vs/`, `x64/`, `x86/`, `debug.log`, `MapleStory.aps`, `Settings`, then rebuild.
 
-**Run the client** (from `x64/Release/`):
-```
-x64\Release\MapleStory.exe
-```
-The executable needs NX data files (`.nx`) in the same directory — these are already present in `x64/Release/`. Debug builds show console output; Release builds run as a Windows GUI app. The client connects to `127.0.0.1:8484` by default (configurable via `Settings` file, `ServerIP` entry).
+**Run the client**: `x64\Release\MapleStory.exe` — needs `.nx` data files in the same directory. Connects to `127.0.0.1:8484` by default (configurable via `Settings` file, `ServerIP` entry).
 
-**Run the server** (HeavenMS, in `d:\Project\Personal\MapleStory-Server`):
-```
-cd d:\Project\Personal\MapleStory-Server
-launch.bat
-```
-Requires Java 8 (RedHat OpenJDK 1.8 installed at `C:\Program Files\RedHat\java-1.8.0-openjdk-1.8.0.492-1`), and MySQL/MariaDB running on `localhost:3306` with database `maplestory` (user/pass: `maplestory/maplestory`, configured in `configuration.ini`). Server listens on port 8484 (login) and 7575+ (channels). Start the server before launching the client.
+**Run the server**: Requires [HeavenMS](https://github.com/ryantpayton/MapleStory) with Java 8 and MySQL/MariaDB. See `CLAUDE.local.md` for machine-specific paths.
 
 ## Build System Details
 
