@@ -49,7 +49,7 @@ namespace nl
 
 		void load_all()
 		{
-			if (exists("Base.nx"))
+			if (exists("Base.nx") || exists("Map.nx"))
 			{
 				Base = add_file("Base.nx");
 				Character = add_file("Character.nx");
@@ -57,25 +57,25 @@ namespace nl
 				Etc = add_file("Etc.nx");
 				Item = add_file("Item.nx");
 				Map = add_file("Map.nx");
-				Map001 = add_file("Map001.nx");
-				Map002 = add_file("Map002.nx");
-				Map2 = add_file("Map2.nx");
+				Map001 = exists("Map001.nx") ? add_file("Map001.nx") : Map;
+				Map002 = exists("Map002.nx") ? add_file("Map002.nx") : Map;
+				Map2 = exists("Map2.nx") ? add_file("Map2.nx") : Map;
 				Mob = add_file("Mob.nx");
-				Mob001 = add_file("Mob001.nx");
-				Mob002 = add_file("Mob002.nx");
-				Mob2 = add_file("Mob2.nx");
+				Mob001 = exists("Mob001.nx") ? add_file("Mob001.nx") : Mob;
+				Mob002 = exists("Mob002.nx") ? add_file("Mob002.nx") : Mob;
+				Mob2 = exists("Mob2.nx") ? add_file("Mob2.nx") : Mob;
 				Morph = add_file("Morph.nx");
 				Npc = add_file("Npc.nx");
 				Quest = add_file("Quest.nx");
 				Reactor = add_file("Reactor.nx");
 				Skill = add_file("Skill.nx");
-				Skill001 = add_file("Skill001.nx");
-				Skill002 = add_file("Skill002.nx");
-				Skill003 = add_file("Skill003.nx");
+				Skill001 = exists("Skill001.nx") ? add_file("Skill001.nx") : Skill;
+				Skill002 = exists("Skill002.nx") ? add_file("Skill002.nx") : Skill;
+				Skill003 = exists("Skill003.nx") ? add_file("Skill003.nx") : Skill;
 				Sound = add_file("Sound.nx");
-				Sound001 = add_file("Sound001.nx");
-				Sound002 = add_file("Sound002.nx");
-				Sound2 = add_file("Sound2.nx");
+				Sound001 = exists("Sound001.nx") ? add_file("Sound001.nx") : Sound;
+				Sound002 = exists("Sound002.nx") ? add_file("Sound002.nx") : Sound;
+				Sound2 = exists("Sound2.nx") ? add_file("Sound2.nx") : Sound;
 				String = add_file("String.nx");
 				TamingMob = add_file("TamingMob.nx");
 				UI = add_file("UI.nx");
