@@ -44,11 +44,6 @@ namespace ms
 				return Error(Error::Code::NLNX, message.c_str());
 			}
 
-			constexpr const char* POSTCHAOS_BITMAP = "Login.img/WorldSelect/BtChannel/layer:bg";
-
-			if (nl::nx::UI.resolve(POSTCHAOS_BITMAP).data_type() != nl::node::type::bitmap)
-				return Error::Code::WRONG_UI_FILE;
-
 			return Error::Code::NONE;
 		}
 	}

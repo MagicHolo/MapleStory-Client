@@ -17,6 +17,14 @@
 //////////////////////////////////////////////////////////////////////////////////
 #pragma once
 
+#include <algorithm>
+#include <cmath>
+#include <cstdint>
+#include <cstdlib>
+#include <iostream>
+#include <stdexcept>
+#include <string>
+
 // If defined use Asio for networking, otherwise use Winsock.
 //#define USE_ASIO
 

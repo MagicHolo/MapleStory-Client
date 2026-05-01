@@ -21,6 +21,7 @@
 
 #include "../Components/Textfield.h"
 
+#include "../../Graphics/Animation.h"
 #include "../../Graphics/Geometry.h"
 #include "../../Template/BoolPair.h"
 
@@ -60,25 +61,26 @@ namespace ms
 			BtEmailLost,
 			BtEmailSave,
 			BtQuit,
-			BtMapleID,
-			BtNexonID,
 			NUM_BUTTONS
+		};
+
+		struct BackgroundLayer
+		{
+			Animation animation;
+			int16_t cx;
+			int16_t cy;
+			int16_t htile;
+			int16_t vtile;
 		};
 
 		Text version;
 		Point<int16_t> version_pos;
 		Textfield account;
-		Point<int16_t> account_src_dim;
-		BoolPair<Texture> account_bg;
 		Textfield password;
-		Point<int16_t> password_src_dim;
-		Texture password_bg;
 		BoolPair<Texture> check;
-		Texture capslock;
 		ColorBox background;
-		Point<int16_t> title_pos;
+		std::vector<BackgroundLayer> login_backgrounds;
 
 		bool saveid;
-		bool nexon;
 	};
 }
