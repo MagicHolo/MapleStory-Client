@@ -13,6 +13,7 @@
 
 *.nx
 *.wz
+CLAUDE.local.md
 Settings
 
 /includes/WzLib
