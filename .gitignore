@@ -5,7 +5,9 @@
 /x86
 
 *.aps
+*.exe
 *.log
+*.obj
 *.tlog
 *.vcxproj.user
 
